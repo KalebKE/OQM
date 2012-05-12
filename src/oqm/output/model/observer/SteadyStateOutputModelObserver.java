@@ -1,5 +1,5 @@
 /*
-MultiplePointOutputModelObserver -- A class within the OQM(Open Queuing Model).
+SteadyStateOutputModelObserver -- A class within the OQM(Open Queuing Model).
 Copyright (C) 2012, Kaleb Kircher.
 
 This program is free software; you can redistribute it and/or
@@ -19,14 +19,19 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 package oqm.output.model.observer;
 
 /**
- * A hook for classes that want to observe updates to the simulation results.
+ * A hook for classes that want to observe updates to the Convergence Simulation.
+ * This observer keeps track of if the steady state from the transition probabilities
+ * matrix was found.
  * @author Kaleb
  */
 public interface SteadyStateOutputModelObserver
 {
+
     /**
-     * Hook for classes to observe updates to the simulation results. 
-     * @param results the simulation results.
+     * A hook for classes that want to observe updates to the Convergence Simulation.
+     * This observer keeps track of if the steady state from the transition probabilities
+     * matrix was found.
+     * @param converged indicates if the steady state was found.
      */
     public void updateSteadyStateOutputModelOutput(boolean converged);
 }

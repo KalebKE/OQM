@@ -1,6 +1,5 @@
 /*
-SimulationPropertiesStateInterface -- an interface within the Machine Artificial
-Vision Network(Machine Artificial Vision Network).
+SimulationPropertiesStateInterface -- an interface within the OQM(Open Queuing Model).
 Copyright (C) 2012, Kaleb Kircher.
 
 This program is free software; you can redistribute it and/or

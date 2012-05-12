@@ -1,12 +1,20 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+OptimizeSystemPanel -- a class within the Open Queueing Model (OQM).
+Copyright (C) 2012, Kaleb Kircher.
 
-/*
- * OptimizeView.java
- *
- * Created on Apr 26, 2012, 2:38:00 PM
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package oqm.optimize.view;
 
@@ -25,7 +33,8 @@ import simulyn.output.model.OutputModelInterface;
 import simulyn.ui.components.BlinkerButton;
 
 /**
- *
+ * OptimizeSystemPanel is a JPanel that renders the results from the optimization
+ * calculations.
  * @author Kaleb
  */
 public class OptimizeSystemPanel extends JPanel implements ConvergenceOutputModelObserver,
@@ -45,7 +54,15 @@ public class OptimizeSystemPanel extends JPanel implements ConvergenceOutputMode
     private OutputModelInterface convergenceOutputModel;
     private SteadyStateOutputModel steadyStateOutputModel;
 
-    /** Creates new form OptimizeView */
+    /**
+     * Initialize a new Optimize System Panel.
+     * @param controlBar the Control Bar for the JPanel.
+     * @param convergenceOutputModel the Convergence Output Model that will
+     * manage the steadt state result of the Convergence Simulation.
+     * @param steadyStateOutputModel the Steady State Output model is responsible
+     * for keeping track of if the steady state of the transition probabilities
+     * matrix was found, or not.
+     */
     public OptimizeSystemPanel(JPanel controlBar,
             OutputModelInterface convergenceOutputModel,
             SteadyStateOutputModel steadyStateOutputModel)
@@ -58,6 +75,7 @@ public class OptimizeSystemPanel extends JPanel implements ConvergenceOutputMode
         this.controlPanel.setLayout(new BoxLayout(this.controlPanel, BoxLayout.LINE_AXIS));
         this.controlPanel.add(this.controlBar);
 
+        // Register as Observers.
         ((ConvergenceOutputModel) this.convergenceOutputModel).registerObserver(this);
         ((SteadyStateOutputModel) this.steadyStateOutputModel).registerObserver(this);
 

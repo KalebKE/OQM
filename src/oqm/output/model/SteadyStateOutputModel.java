@@ -1,5 +1,5 @@
 /*
-IterationOutputModel -- a class within the OQM(Open Queuing Model).
+SteadyStateOutputModel -- a class within the OQM(Open Queuing Model).
 Copyright (C) 2012, Kaleb Kircher.
 
 This program is free software; you can redistribute it and/or
@@ -23,8 +23,8 @@ import oqm.algorithm.model.observer.SteadyStateAlgorithmModelObserver;
 import oqm.output.model.observer.SteadyStateOutputModelObserver;
 
 /**
- * Convergence Output Model stores the Output Model State from the Convergence
- * Matrix returned by the simulation. It is both a Observer of
+ * Steady State Output Model keeps track of if the steady state was found from
+ * the Convergence Simulation. It is both a Observer of
  * the simulation's Algorithm Model and a Subject with its own Observers,
  * typically Output Mediators who render the State and then push it to the View.
  * @author Kaleb
@@ -45,8 +45,8 @@ public class SteadyStateOutputModel implements
     }
 
     /**
-     * Register the Convergence Output Model Observer.
-     * @param o the Convergence Output Model Observer.
+     * Register the Steady State Output Model Observer.
+     * @param o the Steady State Output Model Observer.
      */
     public void registerObserver(SteadyStateOutputModelObserver o)
     {
@@ -54,8 +54,8 @@ public class SteadyStateOutputModel implements
     }
 
     /**
-     * Remove the Convergence Output Model Observer.
-     * @param o the Convergence Output Model Observer.
+     * Remove the Steady State Output Model Observer.
+     * @param o the Steady State Output Model Observer.
      */
     public void removeObserver(SteadyStateOutputModelObserver o)
     {
@@ -67,7 +67,7 @@ public class SteadyStateOutputModel implements
     }
 
     /**
-     * Notify all Convergence Output Model Observer.
+     * Notify all Steady State Output Model Observer.
      */
     public void notifyObservers()
     {
@@ -78,6 +78,12 @@ public class SteadyStateOutputModel implements
         }
     }
 
+    /**
+     * The Observer hook for the Convergence Simulation. It updates once
+     * the Convergence Simulation has finished and indicates if the
+     * steady state of the transition probabilities matrix was found.
+     * @param steadyState indicates if the steady state was found.
+     */
     public void updateSteadyStateAlgorithmModelOutput(boolean steadyState)
     {
         this.steadyState = steadyState;

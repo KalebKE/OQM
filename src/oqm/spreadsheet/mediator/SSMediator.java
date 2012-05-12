@@ -79,28 +79,13 @@ public class SSMediator implements OutputViewMediatorInterface,
     private SimulynLabeledTableRenderer view;
 
     /**
-     * Initialize a new ResultTableMediator.
-     *@param targetModel the Input Target Model is used for Diagnostic Simulations.
-     *
-     * @param simulationModelResult the Simulation Result Model implementation to be
-     * used by the Mediator. It Observes the SinglePointSimulations and
-     * MultiplePointSimluations for new Model Results. It is also a Subject
-     * Obsererved by this class for new Model Results.
-     * 
-     * @param shapesRatioModelResult the Shapes Ratio Result implementation to be
-     * used by the Mediator. It Observes the SinglePointSimulations and
-     * MultiplePointSimluations for new Model Results and then Transforms the
-     * results into a ratio of point misses/hits for each shape within the image.
-     * It is also a Subject Obsererved by this class for new Model Results.
-     * 
-     * @param imageRatioResultthe Shapes Ratio Result implementation to be
-     * used by the Mediator. It Observes the SinglePointSimulations and
-     * MultiplePointSimluations for new Model Results and then Transforms the
-     * results into a ratio of point misses/hits from the image. It is also a
-     * Subject Obsererved by this class for new Model Results.
-     *
-     * @param simulationPropertiesState the Simulation Properties State to
-     * ensure the correct Output Models are rendered.
+     * Initialize a new SSMediator.
+     * @param convergenceOutputModel the Convergence Output Model is responsible
+     * for the steady state matrix.
+     * @param iterationOutputModel the Iteration Output Model provides the
+     * number of interations required to find the steady state.
+     * @param steadyStateOutputModel the Steady State Output Model indicates
+     * if if the steady state was found.
      */
     public SSMediator(OutputModelInterface convergenceOutputModel,
             IterationOutputModel iterationOutputModel,
@@ -217,6 +202,11 @@ public class SSMediator implements OutputViewMediatorInterface,
                 new SaveSpreadsheetFileController(output);
     }
 
+    /**
+     * The Observer hook for the Convergence Output Model that provides
+     * the steady state matrix.
+     * @param modelResult the steady state matrix.
+     */
     public void updateConvergenceOutputModelOutput(double[][] modelResult)
     {
         this.steadyStateMatrix = modelResult;
@@ -235,12 +225,22 @@ public class SSMediator implements OutputViewMediatorInterface,
         this.updateUI();
     }
 
+    /**
+     * The Observer hook for the Iterations Output Model. It provides
+     * the number of iterations that were required to find the steady state.
+     * @param iterations
+     */
     public void updateIterationOutputModelOutput(int iterations)
     {
         view.getModelInformationLabel().setText("Iterations: " + iterations);
         view.getModelInformationLabel().setFont(new Font("Arial", Font.BOLD, 12));
     }
 
+    /**
+     * The Observer hook for the Steady State Output Model. The Steady State
+     * Output Model indicates if the steady state was found, or not.
+     * @param converged
+     */
     public void updateSteadyStateOutputModelOutput(boolean converged)
     {
         view.getTableInfoLabel().setFont(new Font("Arial", Font.BOLD, 12));

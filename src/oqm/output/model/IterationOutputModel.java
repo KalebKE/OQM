@@ -23,8 +23,9 @@ import oqm.algorithm.model.observer.IterationAlgorithmModelObserver;
 import oqm.output.model.observer.IterationOutputModelObserver;
 
 /**
- * Convergence Output Model stores the Output Model State from the Convergence
- * Matrix returned by the simulation. It is both a Observer of
+ * Iteration Output Model manages the number of iterations required
+ * to find the steady state from the Convergence
+ * Simulation. It is both a Observer of
  * the simulation's Algorithm Model and a Subject with its own Observers,
  * typically Output Mediators who render the State and then push it to the View.
  * @author Kaleb
@@ -45,8 +46,8 @@ public class IterationOutputModel implements
     }
 
     /**
-     * Register the Convergence Output Model Observer.
-     * @param o the Convergence Output Model Observer.
+     * Register the Iteration Output Model Observer.
+     * @param o the Iteration Output Model Observer.
      */
     public void registerObserver(IterationOutputModelObserver o)
     {
@@ -54,8 +55,8 @@ public class IterationOutputModel implements
     }
 
     /**
-     * Remove the Convergence Output Model Observer.
-     * @param o the Convergence Output Model Observer.
+     * Remove the Iteration Output Model Observer.
+     * @param o the Iteration Output Model Observer.
      */
     public void removeObserver(IterationOutputModelObserver o)
     {
@@ -67,7 +68,7 @@ public class IterationOutputModel implements
     }
 
     /**
-     * Notify all Convergence Output Model Observer.
+     * Notify all Iteration Output Model Observer.
      */
     public void notifyObservers()
     {
@@ -78,6 +79,12 @@ public class IterationOutputModel implements
         }
     }
 
+    /**
+     * The Observer hook for the Convergence Simulation. It updates the number
+     * of iterations that were required to find the steady state from the
+     * transition probabilities matrix.
+     * @param iterations the number of iterations required to find the steady state.
+     */
     public void updateIterationAlgorithmModelOutput(int iterations)
     {
         this.iterations = iterations;

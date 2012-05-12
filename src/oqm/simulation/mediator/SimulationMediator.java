@@ -57,16 +57,22 @@ public class SimulationMediator implements SimulationMediatorInterface
     private OptimizeController optimizeController;
 
     /**
-     * Initialize a new SimulationMediator.
-     * @param inputModels the simulations Input Models.
-     * @param diagnosticSimulation the desired Diagnostic Simulation.
-     * @param monteCarloSimulation the desired Monte Carlo Simulation.
-     * @param pixelGridSimulation the desired Pixel Grid Simulation.
-     * @param networkMediator the Mediator for the Network Output.
-     * @param plotMediator the Mediator for the Plot Output.
-     * @param simulationPropertiesState the Simulation Properties.
-     * @param propertiesView the Simulation Properties View.
-     * @param ssMediator the Mediator for the Plot Output.
+     * Initialize the Simulation Mediator.
+     * @param inputModel the System Input Model that manages the transition
+     * probabilities matrix that will be used with the Convergence Simulation.
+     * @param convergenceSimulation the Convergence Simulation finds the steady
+     * state of the transition probabilities matrix.
+     * @param propertiesView the Properties View allows the user to define
+     * the properties of the Convergence Simulation.
+     * @param networkMediator the Network Mediator is responsible for managing
+     * all of the classes that render the Network that is represented by the
+     * transition probabilities matrix.
+     * @param plotMediator the Plot Mediator is responsible for managing all of
+     * the classes that render the Plots that represent the results from the
+     * steady state matrix.
+     * @param ssMediator the ssMediator (Spread Sheet Mediator) is responsible
+     * for managing all of the classes that render the steady state matrix into
+     * a spread sheet like environment.
      */
     public SimulationMediator(
             InputModelInterface inputModel,
@@ -147,16 +153,29 @@ public class SimulationMediator implements SimulationMediatorInterface
         this.optimizeController.resetSystem();
     }
 
+    /**
+     * The State Manager for the Simulation's View State.
+     * @param simulationViewState
+     */
     public void setSimulationViewState(SimulationViewStateInterface simulationViewState)
     {
         this.simulationViewState = simulationViewState;
     }
 
+    /**
+     * The State Manager for the Simulations Output View State.
+     * @param simulationViewState
+     */
     public void setSimulationViewOutputState(SimulationViewOutputStateInterface simulationViewState)
     {
         this.simulationViewOutputState = simulationViewState;
     }
 
+    /**
+     * The Optimize Controller that is responsible for rendering the
+     * Optimization algorithm results.
+     * @param optimizeController
+     */
     public void setOptimizeController(OptimizeController optimizeController)
     {
         this.optimizeController = optimizeController;

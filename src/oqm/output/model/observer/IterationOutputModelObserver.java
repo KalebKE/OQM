@@ -1,5 +1,5 @@
 /*
-MultiplePointOutputModelObserver -- A class within the OQM(Open Queuing Model).
+IterationOutputModelObserver -- A class within the OQM(Open Queuing Model).
 Copyright (C) 2012, Kaleb Kircher.
 
 This program is free software; you can redistribute it and/or
@@ -19,14 +19,19 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 package oqm.output.model.observer;
 
 /**
- * A hook for classes that want to observe updates to the simulation results.
+ * A hook for classes that want to observe updates to the Convergence Simulation.
+ * This observer keeps track of the number of iterations required to find the
+ * steady state matrix from the transition probabilities matrix.
  * @author Kaleb
  */
 public interface IterationOutputModelObserver
 {
+
     /**
-     * Hook for classes to observe updates to the simulation results. 
-     * @param results the simulation results.
+     * A hook for classes that want to observe updates to the Convergence Simulation.
+     * This observer keeps track of the number of iterations required to find the
+     * steady state matrix from the transition probabilities matrix.
+     * @param iterations the number of iterations required to find the steady state.
      */
     public void updateIterationOutputModelOutput(int iterations);
 }

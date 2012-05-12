@@ -1,5 +1,5 @@
 /*
-MultiplePointAlgorithmModelObserver -- a class within the
+ConvergenceOutputModelObserver -- a class within the
 OQM (Open Queuing Model).
 Copyright (C) 2012, Kaleb Kircher.
 
@@ -20,14 +20,17 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 package oqm.output.model.observer;
 
 /**
- * A hook for classes that want to observe updates to the simulation results.
+ * A hook for classes that want to observe updates to the steady state matrix
+ * for the transition probabilities matrix. 
  * @author Kaleb
  */
 public interface ConvergenceOutputModelObserver
 {
+
     /**
-     * Hook for classes to observe updates to the simulation results. 
-     * @param results the simulation results.
+     * A hook for classes that want to observe updates to the steady state matrix
+     * for the transition probabilities matrix. 
+     * @param results the steady state matrix.
      */
     public void updateConvergenceOutputModelOutput(double[][] modelResult);
 }

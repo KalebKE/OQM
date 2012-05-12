@@ -29,13 +29,36 @@ import org.math.plot.Plot2DPanel;
  */
 public interface PlotMediatorInterface
 {
+
+    /**
+     * Get the Plot Mediator View.
+     * @return the JPanel representing the Plot Mediator View.
+     */
     public JPanel getView();
 
+    /**
+     * Returns an instance of the Plot that is currently being used and
+     * will eventually be pushed to the View after the State is added
+     * by one of the SwingWorkers.
+     * @return a Plot with or without State.
+     */
     public Plot2DPanel getPlot();
 
+    /**
+     * Remove all plots from the current Plot and update the View.
+     */
     public void onClearUI();
 
+    /**
+     * Renders a Scatter Plot representing the Points that hit shapes and Points
+     * that missed shapes during the simulation
+     */
     public void onScatterPlot();
 
+    /**
+     * Renders a Line Plot representing the amount of time the simulation
+     * took to run versus the number of inputs fed into the simulations
+     * network.
+     */
     public void onLinePlot();
 }

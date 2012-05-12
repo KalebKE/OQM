@@ -77,6 +77,13 @@ public class PlotMediator implements OutputViewMediatorInterface,
     // The View the Mediator manages
     private SimulynDefaultPlotView view;
 
+    /**
+     * Initialize a new Plot Mediator.
+     * @param convergenceOutputModel the Convergence Output Model provides
+     * the steady state matrix from the transition probabilities matrix.
+     * @param steadyStateOutputModel indicates if the steady state matrix
+     * was found, or not.
+     */
     public PlotMediator(OutputModelInterface convergenceOutputModel,
             SteadyStateOutputModel steadyStateOutputModel)
     {
@@ -157,11 +164,20 @@ public class PlotMediator implements OutputViewMediatorInterface,
         ((PlotViewInterface) view).setPlot(plot);
     }
 
+    /**
+     * The Observer hook for the Convergence Simulations steady state matrix.
+     * @param modelResult the steady state matrix.
+     */
     public void updateConvergenceOutputModelOutput(double[][] modelResult)
     {
         this.steadyStateMatrix = modelResult;
     }
 
+    /**
+     * The Observer hook for the Convergence Simulation. Indicates if
+     * the steady state was found, or not.
+     * @param converged indicates if the steady state was found, or not.
+     */
     public void updateSteadyStateOutputModelOutput(boolean converged)
     {
         if (converged)
