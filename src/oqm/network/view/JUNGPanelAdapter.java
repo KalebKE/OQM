@@ -1,6 +1,5 @@
 /*
-JUNGPanelAdapter -- a class within the Machine Artificial Vision Network
-(Machine Artificial Vision Network).
+JUNGPanelAdapter -- a class within the OQM(Open Queuing Model).
 Copyright (C) 2012, Kaleb Kircher.
 
 This program is free software; you can redistribute it and/or
@@ -69,14 +68,6 @@ public class JUNGPanelAdapter extends JPanel implements Printable
     private double[][] system;
     private DecimalFormat decimalFormatter;
     private String decFormat = "0.0000";
-    // indicies to keep track of the verticies in the collection
-    private int inputX;
-    private int inputY;
-    private int andMin;
-    private int andMax;
-    private int orMin;
-    private int orMax;
-    private int output;
     private DirectedGraph<MyNode, MyLink> graph;
     private AbstractLayout<MyNode, MyLink> layout;
     //the visual component and renderer for the graph

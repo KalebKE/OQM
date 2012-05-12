@@ -26,7 +26,9 @@ import oqm.globals.Globals;
 import simulyn.ui.components.inputModel.InputViewAbstractExtraLarge;
 
 /**
- * A special JPanel that provides the layout for the Input Model Views.
+ * A special JPanel that provides the layout for the Input Model Views. The Input
+ * Model Views are defined somewhere else, but generally within the Simulyn
+ * components packages that offer a number of Input Model View components.
  * @author Kaleb
  */
 public class InputViewGridLayoutPanel extends InputViewLayoutPanelAbstract
@@ -34,6 +36,13 @@ public class InputViewGridLayoutPanel extends InputViewLayoutPanelAbstract
 
     private GridLayout layout;
 
+    /**
+     * Initialize a new Input View Grid Layout Panel.
+     * @param inputPanels the Input Model View JPanels that will be added
+     * to the layout of this JPanel using a Grid Layout.
+     * @param controlBar the Control Bar JPanel that is used to control the
+     * application.
+     */
     public InputViewGridLayoutPanel(ArrayList<InputViewAbstractExtraLarge> inputPanels, JPanel controlBar)
     {
         super(controlBar);

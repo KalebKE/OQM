@@ -46,8 +46,8 @@ public class NetworkMediatorModelState implements MediatorStateInterface
     }
 
     /**
-     * Get the double[][] representing the W0 Input Model.
-     * @return the W0 Input Model.
+     * Get the double[][] representing the transition probabilities matrix.
+     * @return the transition probabilities matrix from the System Input Model.
      */
     public double[][] getSystemInputModelMatrix()
     {
@@ -75,7 +75,7 @@ public class NetworkMediatorModelState implements MediatorStateInterface
     }
 
     /**
-     * Set the System Input Model.
+     * Set the System Input Model's transition probabilities matrix.
      * @param systemInputModel the System Input Model.
      */
     public void setSystemInputModel(double[][] systemInputModel)

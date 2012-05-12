@@ -79,9 +79,13 @@ public class NetworkMediator implements
 
     /**
      * Initialize the Network Mediator.
-     * @param andLayerOutputModel
-     * @param orLayerOutputModel
-     * @param outputLayerModelResult
+     * @param systemInputModel the System Input Model that manages the transition
+     * probabilities matrix used for the simulations.
+     * @param covergenceOutputModel the Convergence Ouput Model is responsible
+     * for managing the steady state matrix that is output from the Convergence
+     * Simulation.
+     * @param steadyStateOutputModel The Steady State Output Model is responsible
+     * for keeping track of if the steady state matrix was found, or not. 
      */
     public NetworkMediator(InputModelInterface systemInputModel,
             OutputModelInterface covergenceOutputModel, SteadyStateOutputModel steadyStateOutputModel)
@@ -100,7 +104,11 @@ public class NetworkMediator implements
     }
 
     /**
-     * Animate the network.
+     * Animate the network. The network can be animated to simulate the
+     * results of the simulation on the network graphically in real time.
+     * This can greatly reduce the performance of the simulation, however.
+     * In the case of OQM, real time animation isn't really desirable, but
+     * this method is here incase someone wants to implement the functionality.
      * @param animate boolean indicating if the network should be animated.
      */
     @Override
@@ -111,7 +119,11 @@ public class NetworkMediator implements
     }
 
     /**
-     * Get the network's Model State.
+     * Get the Network's Model State. The Network Model State is responsible
+     * for managing the State of the Network. The Network can have multiple
+     * models backing it. The Mediator shouldn't be responsible for keeping
+     * track of what models have been updated, so a State Pattern is used
+     * and another class keeps tracks of the Models for the Network Mediator.
      * @return the State of the network's Model.
      */
     public NetworkMediatorModelState getNetworkModelState()
@@ -120,7 +132,8 @@ public class NetworkMediator implements
     }
 
     /**
-     * Get the network View.
+     * Get the Network View. The Network View is responsible for rendering
+     * the Models in the GUI.
      * @return the network View.
      */
     @Override
@@ -129,13 +142,18 @@ public class NetworkMediator implements
         return networkView;
     }
 
+    /**
+     * Currently unsupported.
+     * @return boolean
+     * @see this.animateNetwork()
+     */
     public boolean isAnimateNetwork()
     {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     /**
-     * Reset the network.
+     * Reset the Network.
      */
     @Override
     public void resetNetwork()
@@ -145,13 +163,15 @@ public class NetworkMediator implements
     }
 
     /**
-     * Set the network.
+     * Set the Network. The Network is defined by the transition probabilities
+     * matrix which defines all of the transfer probabilities from one node to
+     * the next.
      * @param system the System Input Model.
      */
     @Override
     public void setNetwork(double[][] systemInputModel)
     {
-        // Save the result of the AND Layer Node's State to a local State Pattern
+        // Save the steady state result to a local State Pattern
         // that will decide when all of the State that the View requires has been
         // initialized and set. At that point, the State Pattern will call
         // updateUI() and push the entire Network's State to the View. The
@@ -160,7 +180,10 @@ public class NetworkMediator implements
     }
 
     /**
-     * Set the network's View State.
+     * Set the network's View State. Many Models can back the state of the Networks
+     * View and the Network Mediator shouldn't be responsible for keeping track of
+     * managing them. A State Pattern is used and another classes manages the
+     * State of the Network View.
      * @param networkViewState the State of the network View.
      */
     public void setNetworkViewState(NetworkMediatorViewStateInterface networkViewState)
@@ -177,16 +200,36 @@ public class NetworkMediator implements
         networkView.setNetwork(((NetworkMediatorModelState) networkModelState).getSystemInputModelMatrix());
     }
 
+    /**
+     * The Observer hook for the System Input Model. The System Input Model
+     * manages the transition probabilities matrix which define all of the
+     * transfer probabilities from one node to another node.
+     * @param modelInput
+     */
     public void updateSystemInputModel(double[][] modelInput)
     {
         this.setNetwork(modelInput);
     }
 
+    /**
+     * The Observer hook for the Convergence Output Model. The Convergence Output
+     * Model manages the steady state result from the transition probabilities
+     * matrix, if there is one. If the steady state result was not found,
+     * the last result when n was limited is returned.
+     * @param modelResult the steady state result from the transition probabilities
+     * matrix.
+     */
     public void updateConvergenceOutputModelOutput(double[][] modelResult)
     {
         this.convergenceMatrix = modelResult;
     }
 
+    /**
+     * The Observer hook for the Steady State Output Model. The Steady
+     * State Output Model keeps track of if the steady state from the
+     * transition probabilities matrix was found.
+     * @param converged boolean indicating if the steady state was found.
+     */
     public void updateSteadyStateOutputModelOutput(boolean converged)
     {
         if (converged)

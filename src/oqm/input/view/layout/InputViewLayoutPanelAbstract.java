@@ -25,14 +25,17 @@ import javax.swing.JPanel;
 import simulyn.ui.components.inputModel.InputViewAbstractExtraLarge;
 
 /**
- * A special JPanel that provides the layout for the Input Model Views.
+ * A special JPanel that provides the layout for the Input Model Views. The Input
+ * Model Views are defined somewhere else, but generally within the Simulyn
+ * components packages that offer a number of Input Model View components.
  * @author Kaleb
  */
 public abstract class InputViewLayoutPanelAbstract extends javax.swing.JPanel
 {
+
     protected ArrayList<InputViewAbstractExtraLarge> inputPanels;
     private JPanel controlBar;
-   
+
     /** Creates new form InputControlPanel */
     public InputViewLayoutPanelAbstract(JPanel controlBar)
     {

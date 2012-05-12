@@ -22,13 +22,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import simulyn.input.controller.InputControllerInterface;
 import simulyn.input.model.InputModelInterface;
-import simulyn.ui.components.inputModel.InputViewAbstract;
 import simulyn.ui.components.inputModel.InputViewAbstractExtraLarge;
 import simulyn.ui.components.spreadsheetTable.SimTable;
 
 
 /**
- * An Action Listener for the Input Model Views.
+ * An Action Listener for the Input Model Views. Action Listeners are
+ * used to decouple the View's from the Controller's. This has a bunch of
+ * advantages and makes it easy to change the behavior of View's without having
+ * to actually change any code within the View.
  * @author Kaleb
  */
 public class InputModelViewAction implements ActionListener
@@ -39,7 +41,10 @@ public class InputModelViewAction implements ActionListener
     private InputViewAbstractExtraLarge view;
 
     /**
-     * Initialize a new InputModelViewAction.
+     * Initialize a new InputModelViewAction. Input Model View Action
+     * is responsible for managing the Actions requested from the Input
+     * Model View GUI. This includes opening, saving, and setting the Input Model
+     * so it can be used by the rest of the application.
      * @param inputController the Input Model Controller
      * @param inputModel the Input Model
      */

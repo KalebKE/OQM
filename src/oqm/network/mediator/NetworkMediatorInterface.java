@@ -33,13 +33,18 @@ public interface NetworkMediatorInterface
 {
 
     /**
-     * Animate the network.
+     * Animate the network. The network can be animated to simulate the
+     * results of the simulation on the network graphically in real time.
+     * This can greatly reduce the performance of the simulation, however.
+     * In the case of OQM, real time animation isn't really desirable, but
+     * this method is here incase someone wants to implement the functionality.
      * @param animate boolean indicating if the network should be animated.
      */
     public void animateNetwork(boolean animate);
 
     /**
-     * Get the network View.
+     * Get the Network View. The Network View is responsible for rendering
+     * the Models in the GUI.
      * @return the network View.
      */
     public JPanel getView();

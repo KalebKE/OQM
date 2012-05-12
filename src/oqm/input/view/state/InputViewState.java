@@ -20,7 +20,6 @@ package oqm.input.view.state;
 
 import simulyn.input.view.state.InputViewStateInterface;
 import simulyn.ui.components.BlinkerButton;
-import simulyn.ui.components.inputModel.InputViewAbstract;
 import simulyn.ui.components.inputModel.InputViewAbstractExtraLarge;
 
 /**
@@ -34,8 +33,7 @@ public class InputViewState implements InputViewStateInterface
     private boolean matrixLoaded;
 
     /**
-     * Initialize the state.
-     * @param view the View the class is responsible for.
+     * Initialize the Input View State.
      */
     public InputViewState()
     {
