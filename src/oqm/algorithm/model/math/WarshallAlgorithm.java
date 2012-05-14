@@ -18,6 +18,9 @@
  */
 package oqm.algorithm.model.math;
 
+import oqm.exceptions.NegativeNumberException;
+import oqm.exceptions.NonSquareMatrixException;
+
 /**
  * A class containing the methods needed to perform a boolean transitive closure
  * on a square n*n matrix. The matrix consists of a two dimensional integer
@@ -49,17 +52,17 @@ public class WarshallAlgorithm
      *            Two dimensional array containing the nodes
      * @return boolean indicating if the system is closed (true), or not(false).
      */
-    public static boolean run(double[][] matrix)
+    public static boolean execute(double[][] matrix)
     {
         // Set the size of the array if the array is square.
-        if (matrix.length == matrix.length)
+        if (matrix.length == matrix[0].length)
         {
             size = matrix.length;
         }
-        // Fail.
+        // Fail. The transition probabilities matrix is not square.
         else
         {
-            System.out.println("The matrix is not sqaure!");
+            throw new NonSquareMatrixException();
         }
 
         nodes = new int[size][size];
@@ -68,6 +71,10 @@ public class WarshallAlgorithm
         {
             for (int j = 0; j < matrix[i].length; j++)
             {
+                if(matrix[i][j] < 0)
+                {
+                    throw new NegativeNumberException();
+                }
                 if (matrix[i][j] > 0)
                 {
                     nodes[i][j] = 1;

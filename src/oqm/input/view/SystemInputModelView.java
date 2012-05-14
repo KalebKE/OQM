@@ -90,8 +90,8 @@ public class SystemInputModelView extends InputViewAbstractExtraLarge implements
             this.inputViewState.inputModelReady(false);
         } else
         {
-            boolean closure = WarshallAlgorithm.run(localModelInput);
-            boolean transferProbabilities = ValidateProbabilities.validateProbabilities(localModelInput);
+            boolean closure = WarshallAlgorithm.execute(localModelInput);
+            boolean transferProbabilities = ValidateProbabilities.execute(localModelInput);
             if (closure)
             {
                 this.getInfoLabelLeft().setForeground(Color.BLUE);
