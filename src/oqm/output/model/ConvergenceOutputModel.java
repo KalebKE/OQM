@@ -33,7 +33,6 @@ import simulyn.output.model.OutputModelInterface;
 public class ConvergenceOutputModel extends OutputModelInterface implements
         ConvergenceAlgorithmModelObserver
 {
-
     /**
      * Initialize the state.
      */

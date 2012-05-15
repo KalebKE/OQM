@@ -20,6 +20,7 @@ import static org.junit.Assert.*;
 public class ValidateProbabilitiesTest
 {
 
+    // Valid
     private double[][] matrix0 =
     {
         {
@@ -32,6 +33,7 @@ public class ValidateProbabilitiesTest
             0.5, 0.5, 0
         }
     };
+    // Valid
     private double[][] matrix1 =
     {
         {
@@ -47,6 +49,7 @@ public class ValidateProbabilitiesTest
             0.75, 0, 0.25, 0
         }
     };
+    // Valid
     private double[][] matrix2 =
     {
         {

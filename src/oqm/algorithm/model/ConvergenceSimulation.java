@@ -68,7 +68,6 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
         IterationAlgorithmModelInterface, SystemInputModelObserver
 {
     // Lists for Observers.
-
     private ArrayList<ConvergenceAlgorithmModelObserver> convergenceObservers;
     private ArrayList<SteadyStateAlgorithmModelObserver> steadyStateObservers;
     private ArrayList<IterationAlgorithmModelObserver> iterationObservers;
@@ -102,11 +101,45 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
         // Make sure the Input Model is ready.
         if (inputModelState.isInputModelReady())
         {
-            // Get a new instance of the Swing Worker.
-            simulationWorker = new ConvergenceSimulationWorker(convergenceModelState, inputModelState);
-            // Execute the Swing Worker.
-            simulationWorker.execute();
+            try
+            {
+                // Get a new instance of the Swing Worker.
+                simulationWorker = new ConvergenceSimulationWorker(convergenceModelState, inputModelState);
+                // Execute the Swing Worker.
+                simulationWorker.execute();
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
         }
+    }
+
+    /**
+     * Return the number of Convergence Model Observers.
+     * @return the number of observers.
+     */
+    public int getNumCovergenceObservers()
+    {
+        return this.convergenceObservers.size();
+    }
+
+    /**
+     * Return the number of Iteration Model Observers.
+     * @return the number of observers.
+     */
+    public int getNumIterationObservers()
+    {
+        return this.iterationObservers.size();
+    }
+
+    /**
+     * Return the number of Steady State Observers.
+     * @return the number of observers.
+     */
+    public int getNumSteadyStateObservers()
+    {
+        return this.steadyStateObservers.size();
     }
 
     /**

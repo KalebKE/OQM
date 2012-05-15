@@ -44,6 +44,11 @@ public class SteadyStateOutputModel implements
         modelResultObservers = new ArrayList<SteadyStateOutputModelObserver>();
     }
 
+    public boolean isSteadyState()
+    {
+        return steadyState;
+    }
+
     /**
      * Register the Steady State Output Model Observer.
      * @param o the Steady State Output Model Observer.

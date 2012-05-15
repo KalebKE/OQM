@@ -45,6 +45,11 @@ public class IterationOutputModel implements
         modelResultObservers = new ArrayList<IterationOutputModelObserver>();
     }
 
+    public int getIterations()
+    {
+        return iterations;
+    }
+
     /**
      * Register the Iteration Output Model Observer.
      * @param o the Iteration Output Model Observer.

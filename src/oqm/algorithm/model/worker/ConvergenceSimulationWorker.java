@@ -76,9 +76,8 @@ public class ConvergenceSimulationWorker extends SwingWorker
     @Override
     protected Object doInBackground() throws Exception
     {
-       convergenceModelState.setConvergenceOutput(this.calculateConvergence
-               (inputModelState.getSystemInputModel(),
-               Globals.EPSILON, Globals.ITERATIONS));
+        convergenceModelState.setConvergenceOutput(this.calculateConvergence(inputModelState.getSystemInputModel(),
+                Globals.EPSILON, Globals.ITERATIONS));
 
         return null;
     }
