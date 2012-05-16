@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package oqm.algorithm.model.math;
 
 import oqm.exceptions.NegativeNumberException;
@@ -14,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * JUnit test for the Proportionality Function.
  * @author Kaleb
  */
 public class ProportionalityFunctionTest
@@ -153,7 +150,7 @@ public class ProportionalityFunctionTest
     }
 
     /**
-     * Test of Negative Number Exception.
+     * Test of Non Square Matrix Exception.
      */
     @Test(expected = NonSquareMatrixException.class)
     public void checkNonSquareMatrixException()

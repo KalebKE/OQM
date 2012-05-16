@@ -18,10 +18,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package oqm.algorithm.model.worker;
 
+import com.google.common.util.concurrent.MoreExecutors;
 import javax.swing.SwingWorker;
 import oqm.algorithm.model.state.ConvergenceAlgorithmModelState;
 import oqm.algorithm.model.state.ConvergenceInputModelState;
+import oqm.exceptions.NegativeNumberException;
+import oqm.exceptions.NonSquareMatrixException;
 import oqm.globals.Globals;
+import sun.awt.AppContext;
 
 /**
  * A class that contains methods to calculate the steady state vectors from a transition matrix.
@@ -100,14 +104,28 @@ public class ConvergenceSimulationWorker extends SwingWorker
         double diff = 0;
         int count, i, j, k, l;
 
+        // Validate that the transition probability matrix is square.
+        if(systemInputModel.length != systemInputModel[0].length)
+        {
+            throw new NonSquareMatrixException();
+        }
+
         double[][] product = new double[systemInputModel.length][systemInputModel[0].length];
         double[][] olda = new double[systemInputModel.length][systemInputModel[0].length];
 
+        // Transfer the transition probability matrix to a local copy.
         for (i = 0; i < systemInputModel.length; i++)
         {
             for (j = 0; j < systemInputModel.length; j++)
             {
-                olda[i][j] = systemInputModel[i][j];
+                // Verify that all the numbers are positive.
+                if (systemInputModel[i][j] < 0)
+                {
+                    throw new NegativeNumberException();
+                } else
+                {
+                    olda[i][j] = systemInputModel[i][j];
+                }
             }
         }
 
@@ -166,5 +184,13 @@ public class ConvergenceSimulationWorker extends SwingWorker
         convergenceModelState.setSteadyStateFound(false);
         convergenceModelState.setIterationCount(count);
         return product;
+    }
+
+    /**
+     * Force the SwingWorker to use the main thread so it can be tested.
+     */
+    public void sameThreadExecution()
+    {
+        AppContext.getAppContext().put(SwingWorker.class, MoreExecutors.sameThreadExecutor());
     }
 }

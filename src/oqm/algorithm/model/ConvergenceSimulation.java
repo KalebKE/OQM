@@ -71,6 +71,7 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
     private ArrayList<ConvergenceAlgorithmModelObserver> convergenceObservers;
     private ArrayList<SteadyStateAlgorithmModelObserver> steadyStateObservers;
     private ArrayList<IterationAlgorithmModelObserver> iterationObservers;
+    private boolean sameThreadExecution;
     // State Managers for Algorithm and Input Models.
     private ConvergenceAlgorithmModelState convergenceModelState;
     private ConvergenceInputModelState inputModelState;
@@ -90,6 +91,8 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
         // The State Manager classes.
         inputModelState = new ConvergenceInputModelState();
         convergenceModelState = new ConvergenceAlgorithmModelState(this);
+
+        sameThreadExecution = false;
     }
 
     /**
@@ -105,6 +108,12 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
             {
                 // Get a new instance of the Swing Worker.
                 simulationWorker = new ConvergenceSimulationWorker(convergenceModelState, inputModelState);
+
+                if(sameThreadExecution)
+                {
+                        ((ConvergenceSimulationWorker)simulationWorker).sameThreadExecution();
+                }
+                
                 // Execute the Swing Worker.
                 simulationWorker.execute();
             } catch (Exception e)
@@ -270,6 +279,11 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
         {
             steadyStateObservers.remove(o);
         }
+    }
+
+    public void sameThreadExecution(boolean sameThread)
+    {
+        sameThreadExecution = sameThread;
     }
 
     /**

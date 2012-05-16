@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package oqm.algorithm.model.math;
 
 import oqm.exceptions.NegativeNumberException;
@@ -14,7 +11,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * JUnit test of Warshall Algorithm.
  * @author Kaleb
  */
 public class WarshallAlgorithmTest
@@ -212,7 +209,7 @@ public class WarshallAlgorithmTest
     }
 
     /**
-     * Test of run method, of class WarshallAlgorithm.
+     * Test of execute method, of class WarshallAlgorithm.
      */
     @Test
     public void testExecute()
@@ -242,7 +239,7 @@ public class WarshallAlgorithmTest
     }
 
     /**
-     * Test of Negative Number Exception.
+     * Test of Non Square Matrix Exception.
      */
     @Test(expected = NegativeNumberException.class)
     public void checkNegativeNumberException()
