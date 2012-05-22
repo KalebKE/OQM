@@ -94,6 +94,7 @@ public class NetworkMediator implements
         this.systemInputModel = systemInputModel;
         this.covergenceOutputModel = covergenceOutputModel;
         this.steadyStateOutputModel = steadyStateOutputModel;
+        
         // this class should observe changes to the result model
         ((SystemInputModel) this.systemInputModel).registerObserver(this);
         ((ConvergenceOutputModel) this.covergenceOutputModel).registerObserver(this);

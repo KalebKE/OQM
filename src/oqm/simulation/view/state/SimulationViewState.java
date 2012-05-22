@@ -29,6 +29,7 @@ import oqm.simulation.view.controlBar.ControlBar;
  */
 public class SimulationViewState implements SimulationViewStateInterface
 {
+
     private boolean propertiesLoaded;
     private boolean simulationLoaded;
     private ControlBar outputViewBar;
@@ -122,7 +123,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         inputViewBar.getIterateBackwardButton().setEnabled(false);
         inputViewBar.getIterateForwardButton().setEnabled(false);
 
-         // Disable these buttons
+        // Disable these buttons
         optimizeViewBar.getSimulationPropertiesButton().setEnabled(true);
         optimizeViewBar.getRunSimulationButton().setEnabled(false);
         optimizeViewBar.getSaveModelOutputButton().setEnabled(false);
@@ -158,7 +159,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         outputViewBar.getSimulationPropertiesButton().setEnabled(true);
         outputViewBar.getSaveSimulationButton().setEnabled(true);
         outputViewBar.getClearSimulationButton().setEnabled(true);
-       outputViewBar.getClearNetworkButton().setEnabled(true);
+        outputViewBar.getClearNetworkButton().setEnabled(true);
         outputViewBar.getClearPlotButton().setEnabled(true);
         outputViewBar.getRunSimulationButton().setEnabled(true);
         outputViewBar.getIterateBackwardButton().setEnabled(true);
@@ -175,7 +176,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         inputViewBar.getIterateBackwardButton().setEnabled(true);
         inputViewBar.getIterateForwardButton().setEnabled(true);
 
-         // Disable these buttons
+        // Disable these buttons
         optimizeViewBar.getSimulationPropertiesButton().setEnabled(true);
         optimizeViewBar.getSaveSimulationButton().setEnabled(true);
         optimizeViewBar.getClearSimulationButton().setEnabled(true);

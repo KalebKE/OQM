@@ -22,6 +22,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Iterator;
+import oqm.globals.Globals;
 import oqm.simulation.view.state.SimulationViewStateInterface;
 import simulyn.input.model.InputModelInterface;
 
@@ -77,7 +78,10 @@ public class InputModelChangeEvent implements PropertyChangeListener
             // do nothing.
             if (modelsLoaded)
             {
-                simulationViewInputState.onSimulationLoaded();
+                if (!Globals.TEST_MODE)
+                {
+                    simulationViewInputState.onSimulationLoaded();
+                }
             }
         }
     }

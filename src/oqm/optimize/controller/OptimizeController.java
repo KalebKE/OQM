@@ -78,6 +78,12 @@ public class OptimizeController
     public void resetSystem()
     {
         optimizeView.resetPanel();
+        optimizeView.getOldServerLengthTextField().setText("");
+        optimizeView.getOldLambdaVectorTextField().setText("");
+        optimizeView.getOldQueueLengthTextField().setText("");
+        optimizeView.getOldServerWaitTextField().setText("");
+        optimizeView.getOldServiceRateTextField().setText("");
+        optimizeView.getOldQueueWaitTextField().setText("");
         optimizeView.getSteadyStateVectorTextField().setText("");
         optimizeView.getVisitationVectorTextField().setText("");
         optimizeView.getDemandTimesTextField().setText("");

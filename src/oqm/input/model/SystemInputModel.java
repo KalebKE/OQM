@@ -40,6 +40,11 @@ public class SystemInputModel extends InputModelInterface
         modelInputObservers = new ArrayList<SystemInputModelObserver>();
     }
 
+    public int getNumObservers()
+    {
+        return modelInputObservers.size();
+    }
+
     /**
      * Register a System Input Model Observer. System Input Model
      * Observers want to be notified when a new transition probabilities matrix

@@ -20,6 +20,7 @@ package oqm.algorithm.model.math;
 
 import oqm.exceptions.NegativeNumberException;
 import oqm.exceptions.NonSquareMatrixException;
+import oqm.exceptions.ValueToLargeException;
 
 /**
  * A model class that proportionatly distributes a feedback loop across
@@ -47,7 +48,7 @@ public class ProportionalityFunction
 
         double[][] proportionalMatrix = new double[matrix.length][matrix.length];
 
-        // Get a local copy
+        // Get a local copy and validate.
         for (int i = 0; i < matrix.length; i++)
         {
             for (int j = 0; j < matrix[i].length; j++)
@@ -55,7 +56,12 @@ public class ProportionalityFunction
                 if (matrix[i][j] < 0)
                 {
                     throw new NegativeNumberException();
-                } else
+                } 
+                if (matrix[i][j] > 1)
+                {
+                    throw new ValueToLargeException();
+                }
+                else
                 {
                     proportionalMatrix[i][j] = matrix[i][j];
                 }

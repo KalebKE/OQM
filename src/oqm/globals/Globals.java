@@ -32,4 +32,5 @@ public class Globals
     public static double EPSILON = 0.0001;
     public static int SYSTEM_INPUT_MODEL = 0;
     public static double FEEDBACK = 0.001;
+    public static boolean TEST_MODE = false;
 }

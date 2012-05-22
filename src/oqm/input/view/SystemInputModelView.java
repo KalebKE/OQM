@@ -49,6 +49,8 @@ import simulyn.ui.components.spreadsheetTable.SimTable;
 public class SystemInputModelView extends InputViewAbstractExtraLarge implements SystemInputModelObserver
 {
 
+    double[][] modelInput;
+    
     /**
      * Initialize the SystemInputModelView.
      * @param action the Action Listener responsible for managing the Actions
@@ -75,6 +77,11 @@ public class SystemInputModelView extends InputViewAbstractExtraLarge implements
         this.getInfoLabelRight().setFont(new Font("Arial", Font.BOLD, 12));
     }
 
+    public double[][] getModelInput()
+    {
+        return modelInput;
+    }
+
     /**
      * Hook for the System Input Model Subject. Renders the transition
      * probabilities matrix in the GUI.
@@ -83,15 +90,15 @@ public class SystemInputModelView extends InputViewAbstractExtraLarge implements
     @Override
     public void updateSystemInputModel(double[][] modelInput)
     {
-        double[][] localModelInput = modelInput;
-        if (modelInput.length == 0)
+        this.modelInput = modelInput;
+        if (this.modelInput.length == 0)
         {
             ((SimTable) this.inputPane).clearModel();
             this.inputViewState.inputModelReady(false);
         } else
         {
-            boolean closure = WarshallAlgorithm.execute(localModelInput);
-            boolean transferProbabilities = ValidateProbabilities.execute(localModelInput);
+            boolean closure = WarshallAlgorithm.execute(this.modelInput);
+            boolean transferProbabilities = ValidateProbabilities.execute(this.modelInput);
             if (closure)
             {
                 this.getInfoLabelLeft().setForeground(Color.BLUE);

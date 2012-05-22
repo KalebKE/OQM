@@ -412,6 +412,12 @@ public class OptimizeSystemPanel extends JPanel implements ConvergenceOutputMode
         this.newServiceRateTextField.setEnabled(false);
         this.newServiceTimesLabel.setEnabled(false);
         this.newServiceTimesTextField.setEnabled(false);
+        this.oldLambdaVectorTextField.setEnabled(false);
+        this.oldQueueLengthTextField.setEnabled(false);
+        this.oldQueueWaitTextField.setEnabled(false);
+        this.oldServerLengthTextField.setEnabled(false);
+        this.oldServerWaitTextField.setEnabled(false);
+        this.oldServiceRateTextField.setEnabled(false);
         this.queueLengthLabel.setEnabled(false);
         this.queueLengthTextField.setEnabled(false);
         this.queueWaitLabel.setEnabled(false);
