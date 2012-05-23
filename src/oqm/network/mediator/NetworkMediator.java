@@ -69,9 +69,11 @@ public class NetworkMediator implements
 {
 
     private double[][] convergenceMatrix;
+            
     private OQMNetworkRenderer networkView;
     private MediatorStateInterface networkModelState;
     private NetworkMediatorViewStateInterface networkViewState;
+    
     // Model Result Models
     private InputModelInterface systemInputModel;
     private OutputModelInterface covergenceOutputModel;

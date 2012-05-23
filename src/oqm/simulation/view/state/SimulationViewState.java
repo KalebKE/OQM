@@ -169,7 +169,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         inputViewBar.getSimulationPropertiesButton().setEnabled(true);
         inputViewBar.getSaveSimulationButton().setEnabled(true);
         inputViewBar.getClearSimulationButton().setEnabled(true);
-        inputViewBar.getTargetSimulationButton().setEnabled(true);
+        inputViewBar.getConvergenceSimulationButton().setEnabled(true);
         inputViewBar.getClearNetworkButton().setEnabled(true);
         inputViewBar.getClearPlotButton().setEnabled(true);
         inputViewBar.getRunSimulationButton().setEnabled(true);
@@ -180,7 +180,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         optimizeViewBar.getSimulationPropertiesButton().setEnabled(true);
         optimizeViewBar.getSaveSimulationButton().setEnabled(true);
         optimizeViewBar.getClearSimulationButton().setEnabled(true);
-        optimizeViewBar.getTargetSimulationButton().setEnabled(true);
+        optimizeViewBar.getConvergenceSimulationButton().setEnabled(true);
         optimizeViewBar.getClearNetworkButton().setEnabled(true);
         optimizeViewBar.getClearPlotButton().setEnabled(true);
         optimizeViewBar.getRunSimulationButton().setEnabled(true);
@@ -210,7 +210,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         outputViewBar.getSaveSimulationButton().setEnabled(false);
 
         outputViewBar.getClearModelOutputButton().setEnabled(false);
-        outputViewBar.getTargetSimulationButton().setEnabled(false);
+        outputViewBar.getConvergenceSimulationButton().setEnabled(true);
 
         outputViewBar.getResetSimulationButton().setEnabled(false);
         outputViewBar.getClearNetworkButton().setEnabled(false);
@@ -227,7 +227,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         inputViewBar.getSaveSimulationButton().setEnabled(false);
 
         inputViewBar.getClearModelOutputButton().setEnabled(false);
-        inputViewBar.getTargetSimulationButton().setEnabled(false);
+        inputViewBar.getConvergenceSimulationButton().setEnabled(true);
 
         inputViewBar.getResetSimulationButton().setEnabled(false);
 
@@ -245,7 +245,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         optimizeViewBar.getSaveSimulationButton().setEnabled(false);
 
         optimizeViewBar.getClearModelOutputButton().setEnabled(false);
-        optimizeViewBar.getTargetSimulationButton().setEnabled(false);
+        optimizeViewBar.getConvergenceSimulationButton().setEnabled(true);
 
         optimizeViewBar.getResetSimulationButton().setEnabled(false);
 

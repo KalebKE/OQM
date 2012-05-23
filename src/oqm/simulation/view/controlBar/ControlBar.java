@@ -177,7 +177,7 @@ public class ControlBar extends javax.swing.JPanel
         return simulationPropertiesButton;
     }
 
-    public JToggleButton getTargetSimulationButton()
+    public JToggleButton getConvergenceSimulationButton()
     {
         return convergenceSimulationButton;
     }
