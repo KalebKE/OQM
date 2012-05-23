@@ -38,7 +38,6 @@ import simulyn.algorithm.model.state.AlgorithmModelStateInterface;
 public class ConvergenceAlgorithmModelState implements AlgorithmModelStateInterface
 {
     // Booleans used to keep track of what State has been set.
-
     private boolean convergenceOutputReady;
     private boolean iterationCountReady;
     private boolean steadyStateFound;
@@ -88,6 +87,11 @@ public class ConvergenceAlgorithmModelState implements AlgorithmModelStateInterf
         return convergenceOutputReady;
     }
 
+    public boolean isIterationCountReady()
+    {
+        return iterationCountReady;
+    }
+    
     /**
      * Check to see if the steady state of the transition probabilities matrix
      * was found.

@@ -69,6 +69,11 @@ public class FeedbackController implements IterationOutputModelObserver
         iterationCount = new ArrayList();
     }
 
+    public ArrayList getIterationCount()
+    {
+        return iterationCount;
+    }
+
     /**
      * Add feedback to the identity matrix and proportionalize the System.
      */
@@ -79,7 +84,7 @@ public class FeedbackController implements IterationOutputModelObserver
 
     /**
      * Proportionalizes a feedback alpha through the transition matrix. Will make
-     * a periodic matrix a periodic. Then it runs a series of calculations while
+     * a periodic matrix a-periodic. Then it runs a series of calculations while
      * incrementing the value for alpha and comparing it to the number of iterations
      * it took for the transition matrix to converge to the steady state matrix.
      * Finally, it plots these values.

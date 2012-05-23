@@ -110,7 +110,7 @@ public class ConvergenceSimulation implements AlgorithmModelInterface,
                 simulationWorker = new ConvergenceSimulationWorker(convergenceModelState, inputModelState);
 
                 if(sameThreadExecution)
-                {
+                {      
                         ((ConvergenceSimulationWorker)simulationWorker).sameThreadExecution();
                 }
                 

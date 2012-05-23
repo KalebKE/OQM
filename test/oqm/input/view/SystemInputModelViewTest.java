@@ -17,6 +17,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import simulyn.input.controller.InputController;
 import simulyn.input.model.InputModelInterface;
@@ -140,11 +141,6 @@ public class SystemInputModelViewTest
         ((InputModelViewAction) systemInputModelPanelAction).setView(instance);
         ((InputViewState) systemInputModelState).setView(instance);
 
-        JFrame frame = new JFrame();
-        frame.add(instance);
-        frame.pack();
-        frame.setVisible(true);
-
         systemInputModel.setModelInput(matrix0);
 
         boolean valid = true;
@@ -164,45 +160,5 @@ public class SystemInputModelViewTest
         }
 
         assertTrue(valid);
-
-        systemInputModel.setModelInput(matrix1);
-
-        boolean valid1 = true;
-
-        // Make sure the System we sent to the input model
-        // is the same as the System that the input model
-        // pushes to observers.
-        for (int i = 0; i < matrix1.length; i++)
-        {
-            for (int j = 0; j < matrix1[i].length; j++)
-            {
-                if (instance.getModelInput()[i][j] != matrix1[i][j])
-                {
-                    valid1 = false;
-                }
-            }
-        }
-
-        assertTrue(valid1);
-
-        systemInputModel.setModelInput(matrix2);
-
-        boolean valid2 = true;
-
-        // Make sure the System we sent to the input model
-        // is the same as the System that the input model
-        // pushes to observers.
-        for (int i = 0; i < matrix2.length; i++)
-        {
-            for (int j = 0; j < matrix2[i].length; j++)
-            {
-                if (instance.getModelInput()[i][j] != matrix2[i][j])
-                {
-                    valid2 = false;
-                }
-            }
-        }
-
-        assertTrue(valid2);
     }
 }

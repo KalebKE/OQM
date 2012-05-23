@@ -50,6 +50,11 @@ public class IterationOutputModel implements
         return iterations;
     }
 
+    public int getNumIterationObservers()
+    {
+        return modelResultObservers.size();
+    }
+
     /**
      * Register the Iteration Output Model Observer.
      * @param o the Iteration Output Model Observer.
