@@ -214,8 +214,8 @@ public class SimulationPropertiesFrame extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(iterationLabel)
                 .addGap(18, 18, 18)
-                .addComponent(iterationSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addComponent(iterationSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         iterationPanelLayout.setVerticalGroup(
             iterationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,8 +239,8 @@ public class SimulationPropertiesFrame extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(convergenceErrorLabel)
                 .addGap(28, 28, 28)
-                .addComponent(convergenceErrorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addComponent(convergenceErrorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         covergenceErrorPanelLayout.setVerticalGroup(
             covergenceErrorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,8 +264,8 @@ public class SimulationPropertiesFrame extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(alphaLabel)
                 .addGap(46, 46, 46)
-                .addComponent(alphaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addComponent(alphaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         alphaPanelLayout.setVerticalGroup(
             alphaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,8 +289,8 @@ public class SimulationPropertiesFrame extends javax.swing.JFrame
                 .addContainerGap()
                 .addComponent(feedbackLabel)
                 .addGap(28, 28, 28)
-                .addComponent(feedbackSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addComponent(feedbackSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         feedbackPanelLayout.setVerticalGroup(
             feedbackPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

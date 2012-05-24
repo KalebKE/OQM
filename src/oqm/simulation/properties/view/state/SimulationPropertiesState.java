@@ -19,6 +19,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 package oqm.simulation.properties.view.state;
 
 import javax.swing.SpinnerNumberModel;
+import oqm.globals.Globals;
 import oqm.simulation.properties.view.SimulationPropertiesFrame;
 
 /**
@@ -32,7 +33,6 @@ public class SimulationPropertiesState implements SimulationPropertiesStateInter
 {
 
     private boolean convergenceSimulation;
-
     private SimulationPropertiesFrame propertiesFrameView;
     private SpinnerNumberModel iterationSpinnerModel;
     private SpinnerNumberModel alphaSpinnerModel;
@@ -67,8 +67,6 @@ public class SimulationPropertiesState implements SimulationPropertiesStateInter
         return feedbackSpinnerModel;
     }
 
-    
-
     /**
      * Get the Iteration Spinner Model.
      * @return SpinnerNumberModel representing the number of iterations
@@ -100,7 +98,7 @@ public class SimulationPropertiesState implements SimulationPropertiesStateInter
 
         iterationSpinnerModel = new SpinnerNumberModel(1000.0, 0.0, 100000.0, 1);
         alphaSpinnerModel = new SpinnerNumberModel(0.9, 0.0, 1, 0.01);
-        convergenceErrorSpinnerModel = new SpinnerNumberModel(0.01, 0.0, 1, 0.01);
+        convergenceErrorSpinnerModel = new SpinnerNumberModel(Globals.EPSILON, 0.000, 1.000, 0.0001);
         feedbackSpinnerModel = new SpinnerNumberModel(0.01, 0.0, 1, 0.001);
 
         propertiesFrameView.getAlphaSpinner().setModel(alphaSpinnerModel);
@@ -116,7 +114,7 @@ public class SimulationPropertiesState implements SimulationPropertiesStateInter
      */
     @Override
     public void onConvergenceSimulation()
-    { 
+    {
         propertiesFrameView.getAlphaLabel().setEnabled(true);
         propertiesFrameView.getAlphaSpinner().setEnabled(true);
 
@@ -127,5 +125,5 @@ public class SimulationPropertiesState implements SimulationPropertiesStateInter
         propertiesFrameView.getConvergenceErrorLabel().setEnabled(true);
 
         convergenceSimulation = true;
-    }    
+    }
 }

@@ -97,86 +97,154 @@ public class ControlBar extends javax.swing.JPanel
         initActions();
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getClearModelOutputButton()
     {
         return clearModelOutputButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getClearNetworkButton()
     {
         return clearNetworkButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getClearPlotButton()
     {
         return clearPlotButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getClearSimulationButton()
     {
         return clearSimulationButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JPanel getControlPanel()
     {
         return controlPanel;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getImportSimulationButton()
     {
         return importSimulationButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JToggleButton getInputViewButton()
     {
         return inputViewButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getIterateBackwardButton()
     {
         return iterateBackwardButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getIterateForwardButton()
     {
         return iterateForwardButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JToggleButton getOptimizeViewButton()
     {
         return optimizeViewButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JToggleButton getOutputViewButton()
     {
         return outputViewButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getResetSimulationButton()
     {
         return resetSimulationButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getRunSimulationButton()
     {
         return runSimulationButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getSaveModelOutputButton()
     {
         return saveModelOutputButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JButton getSaveSimulationButton()
     {
         return saveSimulationButton;
     }
 
+    /**
+     * 
+     * @return
+     */
     public JButton getSimulationPropertiesButton()
     {
         return simulationPropertiesButton;
     }
 
+    /**
+     *
+     * @return
+     */
     public JToggleButton getConvergenceSimulationButton()
     {
         return convergenceSimulationButton;
@@ -197,7 +265,11 @@ public class ControlBar extends javax.swing.JPanel
         simulationPropertiesButton = new ControlButton(getIcon("/icons/simulationProperties.png"));
         modelControlBar.add(simulationPropertiesButton);
 
+        JToggleButton.ToggleButtonModel convergenceToggleModel = new JToggleButton.ToggleButtonModel();
         convergenceSimulationButton = new ControlToggleButton(getIcon("/icons/convergenceSimulation.png"));
+        convergenceSimulationButton.setModel(convergenceToggleModel);
+        convergenceSimulationButton.getModel().setPressed(true);
+        convergenceSimulationButton.getModel().setSelected(true);
         modelControlBar.add(convergenceSimulationButton);
 
         clearModelOutputButton = new ControlButton(getIcon("/icons/clearSimulationOutput.png"));

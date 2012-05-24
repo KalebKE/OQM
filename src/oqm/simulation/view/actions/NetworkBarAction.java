@@ -56,7 +56,7 @@ public class NetworkBarAction implements ActionListener
         }
         if (e.getActionCommand().equals("clearNetworkAction"))
         {
-          
+          this.networkMediator.resetNetwork();
         }
     }
 }

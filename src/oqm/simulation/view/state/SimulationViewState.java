@@ -89,8 +89,11 @@ public class SimulationViewState implements SimulationViewStateInterface
     {
         // Disable these buttons
         outputViewBar.getRunSimulationButton().setEnabled(true);
+        outputViewBar.getConvergenceSimulationButton().getModel().setPressed(true);
         inputViewBar.getRunSimulationButton().setEnabled(true);
+        inputViewBar.getConvergenceSimulationButton().getModel().setPressed(true);
         optimizeViewBar.getRunSimulationButton().setEnabled(true);
+        inputViewBar.getConvergenceSimulationButton().getModel().setPressed(true);
         view.getRunSimulationMenuItem().setEnabled(true);
 
         propertiesLoaded = true;
@@ -108,7 +111,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         view.getClearOutputMenuItem().setEnabled(false);
 
         // Disable these buttons
-        outputViewBar.getSimulationPropertiesButton().setEnabled(true);
+        outputViewBar.getSimulationPropertiesButton().setEnabled(false);
         outputViewBar.getRunSimulationButton().setEnabled(false);
         outputViewBar.getSaveModelOutputButton().setEnabled(false);
         outputViewBar.getClearModelOutputButton().setEnabled(false);
@@ -116,7 +119,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         outputViewBar.getIterateForwardButton().setEnabled(false);
 
         // Disable these buttons
-        inputViewBar.getSimulationPropertiesButton().setEnabled(true);
+        inputViewBar.getSimulationPropertiesButton().setEnabled(false);
         inputViewBar.getRunSimulationButton().setEnabled(false);
         inputViewBar.getSaveModelOutputButton().setEnabled(false);
         inputViewBar.getClearModelOutputButton().setEnabled(false);
@@ -124,7 +127,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         inputViewBar.getIterateForwardButton().setEnabled(false);
 
         // Disable these buttons
-        optimizeViewBar.getSimulationPropertiesButton().setEnabled(true);
+        optimizeViewBar.getSimulationPropertiesButton().setEnabled(false);
         optimizeViewBar.getRunSimulationButton().setEnabled(false);
         optimizeViewBar.getSaveModelOutputButton().setEnabled(false);
         optimizeViewBar.getClearModelOutputButton().setEnabled(false);
@@ -194,6 +197,7 @@ public class SimulationViewState implements SimulationViewStateInterface
     @Override
     public void onSimulationUnloaded()
     {
+
         view.getEditPropertiesMenuItem().setEnabled(false);
         view.getSaveModelMenuItem().setEnabled(false);
         view.getCloseSimulationMenuItem().setEnabled(false);
@@ -206,6 +210,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         view.getRenderTimeMenuItem().setEnabled(false);
         view.getRunSimulationMenuItem().setEnabled(false);
 
+        outputViewBar.getSimulationPropertiesButton().setEnabled(false);
         outputViewBar.getClearSimulationButton().setEnabled(false);
         outputViewBar.getSaveSimulationButton().setEnabled(false);
 
@@ -223,6 +228,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         outputViewBar.getSaveModelOutputButton().setEnabled(false);
         outputViewBar.getSaveModelOutputButton().setEnabled(false);
 
+        inputViewBar.getSimulationPropertiesButton().setEnabled(false);
         inputViewBar.getClearSimulationButton().setEnabled(false);
         inputViewBar.getSaveSimulationButton().setEnabled(false);
 
@@ -241,6 +247,7 @@ public class SimulationViewState implements SimulationViewStateInterface
         inputViewBar.getSaveModelOutputButton().setEnabled(false);
         inputViewBar.getSaveModelOutputButton().setEnabled(false);
 
+        optimizeViewBar.getSimulationPropertiesButton().setEnabled(false);
         optimizeViewBar.getClearSimulationButton().setEnabled(false);
         optimizeViewBar.getSaveSimulationButton().setEnabled(false);
 
