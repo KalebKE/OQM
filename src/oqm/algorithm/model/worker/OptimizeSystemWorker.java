@@ -59,11 +59,11 @@ public class OptimizeSystemWorker
         double[] piVector = new double[steadyState.length];
         double[] visitation = new double[steadyState.length];
 
-        double[] dNew = new double[steadyState.length - 1];
-        double[] mu = new double[steadyState.length - 1];
+        double[] dNew = new double[steadyState.length];
+        double[] mu = new double[steadyState.length];
         double[] oldMu = new double[steadyState.length];
-        double[] sNew = new double[steadyState.length - 1];
-        double[] nodeLambda = new double[steadyState.length - 1];
+        double[] sNew = new double[steadyState.length];
+        double[] nodeLambda = new double[steadyState.length];
         double[] oldNodeLambda = new double[steadyState.length];
 
         double piMin;
@@ -165,9 +165,9 @@ public class OptimizeSystemWorker
 
         optimizeView.setBetaText(beta);
 
-        for (int i = 1; i < sNew.length + 1; i++)
+        for (int i = 0; i < sNew.length; i++)
         {
-            sNew[i - 1] = serviceTimes[i] / beta[i];
+            sNew[i] = serviceTimes[i] / beta[i];
         }
 
         double[] oldLs = new double[oldNodeLambda.length];
@@ -204,9 +204,9 @@ public class OptimizeSystemWorker
 
         optimizeView.setNewServiceTimesText(sNew);
 
-        for (int i = 1; i < dNew.length + 1; i++)
+        for (int i = 0; i < dNew.length; i++)
         {
-            dNew[i - 1] = sNew[i - 1] * visitation[i];
+            dNew[i] = sNew[i] * visitation[i];
 
         }
 
@@ -223,7 +223,7 @@ public class OptimizeSystemWorker
         dMax = dNew[1];
 
         // find dMax
-        for (int i = 1; i < dNew.length; i++)
+        for (int i = 0; i < dNew.length; i++)
         {
             if (dNew[i] > dMax)
             {
@@ -238,7 +238,7 @@ public class OptimizeSystemWorker
 
         for (int i = 0; i < nodeLambda.length; i++)
         {
-            nodeLambda[i] = lambda * visitation[i + 1];
+            nodeLambda[i] = lambda * visitation[i];
         }
 
         optimizeView.setLambdaVectorText(nodeLambda);

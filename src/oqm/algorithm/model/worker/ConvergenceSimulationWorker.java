@@ -42,7 +42,7 @@ import sun.awt.AppContext;
  * v = [x   y   z . . . ]
  *
  * Convergence Simulation Worker uses a iterative approach to finding the
- * steady state by raising P to the nth power. For a sufficiantly large
+ * steady state by raising P to the nth power. For a sufficiently large
  * n, P will converge to the steady state.
  *
  * Note that this class is a Swing Worker an each instance is intended to be
